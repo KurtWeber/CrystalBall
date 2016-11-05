@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "Cyrstal Ball";
+}
+
+<h2>Crystal Ball</h2>
+<center>
+    <img src="~/Images/CrystalBall.png" width="600"/>
+    <p id="reply"></p>
+</center>
+
+<script>
+    $(document).ready(function () {
+        $("img").click(function () {
+            //alert("yep, works!")
+            $.get("@Url.Action("ShakeBall","Home")", function (response) {
+                $("#reply").text(response);
+            });
+        });
+    });
+</script>
